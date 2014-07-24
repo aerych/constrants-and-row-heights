@@ -1,29 +1,59 @@
-//
-//  ViewController.m
-//  autolayouttest
-//
-//  Created by aerych on 7/23/14.
-//  Copyright (c) 2014 WordPress. All rights reserved.
-//
-
 #import "ViewController.h"
-
-@interface ViewController ()
-
-@end
+#import "TableViewController.h"
+#import "TestOneViewController.h"
+#import "TestTwoViewController.h"
+#import "TestThreeViewController.h"
+#import "TestFourViewController.h"
+#import "TestFiveViewController.h"
 
 @implementation ViewController
 
-- (void)viewDidLoad
+// Regular cells, no constraints, row animation.
+- (IBAction)performBaseline:(id)sender
 {
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    TableViewController *controller = [[TableViewController alloc] init];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
-- (void)didReceiveMemoryWarning
+
+// Cells with constraints, no estimated row height, row animation.
+- (IBAction)performTestOne:(id)sender
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    TableViewController *controller = [[TestOneViewController alloc] init];
+    [self.navigationController pushViewController:controller animated:YES];
 }
+
+
+// Cells with constraints, estimated row height, row animation.
+- (IBAction)performTestTwo:(id)sender
+{
+    TableViewController *controller = [[TestTwoViewController alloc] init];
+    [self.navigationController pushViewController:controller animated:YES];
+}
+
+
+// Cells with constraints but no width/height specified, estimated row height, row animation.
+- (IBAction)performTestThree:(id)sender
+{
+    TableViewController *controller = [[TestThreeViewController alloc] init];
+    [self.navigationController pushViewController:controller animated:YES];
+}
+
+
+// Cells with constraints, using wrapper, estimated row height, row animation.
+- (IBAction)performTestFour:(id)sender
+{
+    TableViewController *controller = [[TestFourViewController alloc] init];
+    [self.navigationController pushViewController:controller animated:YES];
+}
+
+
+// Cells with constraints, estimated row height, no row animation.
+- (IBAction)performTestFive:(id)sender
+{
+    TableViewController *controller = [[TestFiveViewController alloc] init];
+    [self.navigationController pushViewController:controller animated:YES];
+}
+
 
 @end
